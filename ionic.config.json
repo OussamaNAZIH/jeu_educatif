@@ -1,0 +1,7 @@
+{
+  "name": "jeu-educatif",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
