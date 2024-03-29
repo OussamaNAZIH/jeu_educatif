@@ -1,0 +1,22 @@
+// .separator {
+//     border-top: 1px solid black; /* Bordure supérieure de la ligne */
+//     margin-bottom: 10px; /* Espace entre les boutons */
+//   }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .space-between-buttons {
+    margin-top: 50px; /* Ajoutez la marge désirée entre l'image et les boutons */
+  }
+
+  .img {
+    margin: 30px; 
+    color: #36abe0 !important; }
+
+    
+.blue-background {
+  --background: #36abe0 !important;
+}

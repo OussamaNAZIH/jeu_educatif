@@ -1,0 +1,64 @@
+<ion-toolbar class="footer-toolbar">
+  <ion-title class="center-title">Level 3</ion-title>
+  <div slot="end" class="center-title">{{ score }} </div>
+  <ion-icon slot="end" name="wallet" color="warning"></ion-icon>
+</ion-toolbar>
+
+<ion-content class="blue-background">
+  <div class="container">
+    <ion-img class="img" src="assets/orange.jpg"></ion-img>
+    <div class="code-input">
+      <div class="fixed-part">O</div>
+      <input *ngIf="!showPart1" class="part" type="text" maxlength="1" [(ngModel)]="part1" />
+      <div *ngIf="showPart1" class="fixed-part">R</div>
+      
+      <div class="fixed-part">A</div>
+      
+      <input *ngIf="!showPart2" class="part" type="text" maxlength="1" [(ngModel)]="part2" />
+      <div *ngIf="showPart2" class="fixed-part">N</div>
+
+      <div class="fixed-part">G</div>
+      
+      <input *ngIf="!showPart3" class="part" type="text" maxlength="1" [(ngModel)]="part3" />
+      <div *ngIf="showPart3" class="fixed-part">E</div>
+      
+      
+
+
+     
+    </div>
+      <div class="container">
+        <div class="keyboard">
+          <ion-button (click)="appendKey('A')">A</ion-button>
+          <ion-button (click)="appendKey('B')">B</ion-button>
+          <ion-button (click)="appendKey('C')">C</ion-button>
+          <ion-button (click)="appendKey('D')">D</ion-button>
+          <ion-button (click)="appendKey('E')">E</ion-button>
+          <ion-button (click)="appendKey('F')">F</ion-button>
+          <ion-button (click)="appendKey('G')">G</ion-button>
+          <ion-button (click)="appendKey('H')">H</ion-button>
+          <ion-button (click)="appendKey('I')">I</ion-button>
+          <ion-button (click)="appendKey('J')">J</ion-button>
+          <ion-button (click)="appendKey('K')">K</ion-button>
+          <ion-button (click)="appendKey('L')">L</ion-button>
+          <ion-button (click)="appendKey('M')">M</ion-button>
+          <ion-button (click)="appendKey('N')">N</ion-button>
+          <ion-button (click)="appendKey('O')">O</ion-button>
+          <ion-button (click)="appendKey('P')">P</ion-button>
+          <ion-button (click)="appendKey('Q')">Q</ion-button>
+          <ion-button (click)="appendKey('R')">R</ion-button>
+          <ion-button (click)="appendKey('S')">S</ion-button>
+          <ion-button (click)="appendKey('T')">T</ion-button>
+          <ion-button (click)="appendKey('U')">U</ion-button>
+          <ion-button (click)="appendKey('V')">V</ion-button>
+          <ion-button (click)="appendKey('W')">W</ion-button>
+          <ion-button (click)="appendKey('X')">X</ion-button>
+          <ion-button (click)="appendKey('Y')">Y</ion-button>
+          <ion-button (click)="appendKey('Z')">Z</ion-button>
+        </div>
+      </div>
+      <ion-button expand="block" [disabled]="score == 0" [color]="score == 0 ? 'danger' : 'primary'" (click)="indice()">Indice 10 <ion-icon slot="end" name="wallet" color="warning"></ion-icon>
+        </ion-button>
+
+  </div>
+</ion-content>

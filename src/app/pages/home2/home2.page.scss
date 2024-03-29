@@ -1,0 +1,80 @@
+
+.img {
+  margin: 30px;  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
+.code-input {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Espacement entre l'image et le champ de saisie */
+}
+
+.part {
+  width: 50px; /* Largeur de chaque partie */
+  height: 50px; /* Hauteur de chaque partie */
+  text-align: center;
+  font-size: 1.5em;
+  border: 2px solid #000;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255); /* Arrière-plan rouge */
+  margin: 0 5px; /* Espacement entre les parties */
+}
+
+.fixed-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Largeur de chaque partie fixe */
+  height: 50px; /* Hauteur de chaque partie fixe */
+  font-size: 1.5em;
+  border: 2px solid #000;
+  border-radius: 5px;
+  background-color: #ddd; /* Arrière-plan différent pour les parties fixes */
+  margin: 0 5px; /* Espacement entre les parties */
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ion-button {
+  margin: 5px; /* Espacement entre les boutons du clavier */
+}
+
+
+
+.circular-button {
+  width: 10vw; /* Occupe 10% de la largeur de la vue */
+  height: 10vw; /* Occupe 10% de la largeur de la vue */
+  font-size: 1.2em; /* Ajustez la taille de la police selon vos besoins */
+  border-radius: 50%; /* Rend le bouton circulaire */
+  border: 1px solid #8f8f8f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-button:active {
+  background-color: #e6e6e6; /* Change la couleur de fond lorsqu'un bouton est pressé */
+}
+
+.footer-toolbar {
+  --background: #36abe0  ; /* Couleur de fond de la barre de navigation */
+}
+
+.center-title {
+  color: white;
+  margin: 0 auto; /* Centre le titre dans la barre de navigation */
+}
+
+.blue-background {
+  --background: #36abe0 !important;
+}
