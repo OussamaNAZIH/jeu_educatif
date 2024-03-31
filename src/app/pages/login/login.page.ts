@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AutheticationService } from 'src/app/authetication.service';
 
@@ -11,7 +12,7 @@ import { AutheticationService } from 'src/app/authetication.service';
 export class LoginPage implements OnInit {
   loginForm : FormGroup
 
-  constructor(public formBuilder : FormBuilder,public loadingCtrl:LoadingController , public authService: AutheticationService) { }
+  constructor(public route:Router, public formBuilder : FormBuilder,public loadingCtrl:LoadingController , public authService: AutheticationService) { }
 
   ngOnInit() {
     
@@ -31,11 +32,22 @@ export class LoginPage implements OnInit {
     return this.loginForm?.controls;
   }
 
-  async signUp(){
+  async login(){
     const loading = await this.loadingCtrl.create();
     await loading.present();
     if(this.loginForm?.valid){
-      // const user = await this.authService.resgisterUser(email,password);
+      const user = await this.authService.loginUser(this.loginForm.value.email,this.loginForm.value.password).catch((error) =>{
+        console.log(error);
+        loading.dismiss()
+      })
+      if(user){
+        loading.dismiss()
+        this.route.navigate(['/home1'])
+        
+      }
+      else{
+        console.log('provide correct values')
+      }
     }
   }
 

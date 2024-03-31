@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { isEmpty } from 'rxjs';
+import { NavController, Platform } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -18,7 +17,7 @@ export class Home4Page {
   showPart2:boolean =false;
   showPart3:boolean =false;
 
-  constructor(private navController: NavController, private activatedRoute: ActivatedRoute) {
+  constructor(private navController: NavController, private activatedRoute: ActivatedRoute,private platform: Platform) {
     // Récupérez le score passé en paramètre de l'URL
     this.activatedRoute.queryParams.subscribe(params => {
       this.score = params['score'];
@@ -32,8 +31,19 @@ export class Home4Page {
       const code = 'T' + this.part1 + 'G' + this.part2 + 'R';
       if (code === 'TIGER') {
         setTimeout(() => {
-          this.navController.navigateForward('/home5', { queryParams: { score: this.score +10} });
-        }, 1000);
+          const alertPlaceholder = document.getElementById('alert-placeholder');
+          const alertBox = document.createElement('div');
+          alertBox.className = 'alert-box';
+          alertBox.innerText = 'Ceci est une alerte stylisée!';
+          alertPlaceholder.appendChild(alertBox);
+  
+          // Optionnel: Supprimer l'alerte après un certain temps
+          setTimeout(() => {
+              alertBox.remove();
+          }, 5000); // supprime l'alerte après 5 secondes
+      }, 5000);
+        this.navController.navigateForward('/home5', { queryParams: { score: this.score +10} });
+
       } else {
         // Code incorrect, réinitialiser les parties variables du champ de saisie
         setTimeout(() => {
@@ -62,5 +72,15 @@ export class Home4Page {
       }, 1000);
     }
     
+  }
+  playLionSound() {
+    // Vérifiez si la plateforme est prête pour jouer des sons
+    this.platform.ready().then(() => {
+      // Créez une nouvelle instance de l'objet Audio avec le chemin du fichier audio du lion
+      const lionSound = new Audio('assets/tiger.mp3');
+
+      // Jouez le son du lion
+      lionSound.play();
+    });
   }
 }

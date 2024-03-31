@@ -53,10 +53,15 @@
           <ion-button (click)="appendKey('X')">X</ion-button>
           <ion-button (click)="appendKey('Y')">Y</ion-button>
           <ion-button (click)="appendKey('Z')">Z</ion-button>
+          <ion-button expand="block" (click)="playLionSound()">  <ion-icon  name="volume-high-outline" color="warning-contrast">  </ion-icon>
+          </ion-button>
         </div>
       </div>
       <ion-button expand="block" [disabled]="score == 0" [color]="score == 0 ? 'danger' : 'primary'" (click)="indice()">Indice 10 <ion-icon slot="end" name="wallet" color="warning"></ion-icon>
         </ion-button>
 
   </div>
+  <!-- Placez cette balise là où vous souhaitez que l'alerte apparaisse -->
+<div id="alert-placeholder"></div>
+
 </ion-content>

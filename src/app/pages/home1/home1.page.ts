@@ -62,7 +62,7 @@ export class Home1Page {
     // Vérifiez si la plateforme est prête pour jouer des sons
     this.platform.ready().then(() => {
       // Créez une nouvelle instance de l'objet Audio avec le chemin du fichier audio du lion
-      const lionSound = new Audio('assets/lionSound.wav');
+      const lionSound = new Audio('assets/Lion.mp3');
 
       // Jouez le son du lion
       lionSound.play();

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { isEmpty } from 'rxjs';
+import { NavController, Platform } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -18,7 +17,7 @@ export class Home6Page {
   showPart2:boolean =false;
   showPart3:boolean =false;
 
-  constructor(private navController: NavController, private activatedRoute: ActivatedRoute) {
+  constructor(private navController: NavController, private activatedRoute: ActivatedRoute,private platform: Platform) {
     // Récupérez le score passé en paramètre de l'URL
     this.activatedRoute.queryParams.subscribe(params => {
       this.score = params['score'];
@@ -32,7 +31,7 @@ export class Home6Page {
       const code = 'C' + this.part1 + this.part2 ;
       if (code === 'CAR') {
         setTimeout(() => {
-          this.navController.navigateForward('/home7', { queryParams: { score: this.score +10 } });
+          this.navController.navigateForward('/landing', { queryParams: { score: this.score +10 } });
         }, 1000);
       } else {
         // Code incorrect, réinitialiser les parties variables du champ de saisie
@@ -58,9 +57,19 @@ export class Home6Page {
       this.part2 = 'R';
       this.showPart2 = true;
       setTimeout(() => {
-        this.navController.navigateForward('/home7', { queryParams: { score: this.score +10 } });
+        this.navController.navigateForward('/landing', { queryParams: { score: this.score +10 } });
       }, 1000);
     }
     
+  }
+  playLionSound() {
+    // Vérifiez si la plateforme est prête pour jouer des sons
+    this.platform.ready().then(() => {
+      // Créez une nouvelle instance de l'objet Audio avec le chemin du fichier audio du lion
+      const lionSound = new Audio('assets/car.mp3');
+
+      // Jouez le son du lion
+      lionSound.play();
+    });
   }
 }

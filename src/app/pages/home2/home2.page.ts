@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { isEmpty } from 'rxjs';
+import { NavController, Platform } from '@ionic/angular';
+import { EMPTY } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -18,7 +19,7 @@ export class Home2Page {
   showPart2:boolean =false;
   showPart3:boolean =false;
 
-  constructor(private navController: NavController, private activatedRoute: ActivatedRoute) {
+  constructor(private navController: NavController, private activatedRoute: ActivatedRoute,private platform: Platform) {
     // Récupérez le score passé en paramètre de l'URL
     this.activatedRoute.queryParams.subscribe(params => {
       this.score = params['score'];
@@ -72,4 +73,15 @@ export class Home2Page {
     }
     
   }
+  playLionSound() {
+    // Vérifiez si la plateforme est prête pour jouer des sons
+    this.platform.ready().then(() => {
+      // Créez une nouvelle instance de l'objet Audio avec le chemin du fichier audio du lion
+      const lionSound = new Audio('assets/banana.mp3');
+
+      // Jouez le son du lion
+      lionSound.play();
+    });
+  }
+  
 }

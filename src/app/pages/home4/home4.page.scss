@@ -78,3 +78,12 @@ ion-button {
 .blue-background {
   --background: #36abe0 !important;
 }
+
+.alert-box {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 5px; /* Rounded corners */
+  text-align: center;
+}
